@@ -1,0 +1,48 @@
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: auto;
+    margin-top: 10px;
+    width: 90%;
+    word-break: break-all;
+}
+
+th {
+    background: #0c73fe;
+    color: white;
+    font-weight: normal;
+}
+
+td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+td:hover {
+    background: #d9e8ff;
+}
+
+tr {
+    background-color: white;
+}
+
+.registration-form {
+    flex-direction: column;
+    align-items: center;
+}
+
+.submit-button {
+    width: 170px;
+}
+
+#base-url {
+    display: none;
+}
+
+.disable {
+    pointer-events: none;
+    background: grey;
+    border: none;
+    box-sizing: border-box;
+    width: 170px;
+}

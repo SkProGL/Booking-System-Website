@@ -1,0 +1,72 @@
+<!--customized phone input field used from-->
+<!--https://github.com/jackocnr/intl-tel-input-->
+
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="../static/main/forms.css">
+<link rel="stylesheet" href="../static/main/register/register.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@21.1.1/build/css/intlTelInput.css">
+{% endblock head %}
+
+
+{% block content %}
+
+<div class="descriptive-title">Sign up
+</div>
+
+<form action="#" method="post" onsubmit="return validateForm();" class="registration-form">
+    <div>
+        <div>
+            <label for="name">First name</label>
+            <input id="name" name="name" type="text" minlength="2" maxlength="12" required>
+        </div>
+        <div>
+            <label for="surname">Last name</label>
+            <input id="surname" name="surname" type="text" minlength="2" maxlength="12" required>
+        </div>
+        <div>
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="text" placeholder="e.g. jcougar@hotmail.com" required>
+        </div>
+        <div id="username-input-wrapper">
+            <label for="username">Username</label>
+            <input id="username" name="username" placeholder="e.g. JimCougar2" type="text"
+                   minlength="5" maxlength="15" required>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <div id="username-password-wrapper">
+                <input id="password" placeholder="" name="password" type="password" minlength="8"
+                       maxlength="15" required>
+                <button class="password-show-button" type="button">show</button>
+            </div>
+            <div id="password-hint">
+                <span id="password-hint-1">1 number </span>
+                <span id="password-hint-2">1 uppercase </span>
+                <span id="password-hint-3">1 lowercase</span>
+            </div>
+        </div>
+        <div>
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="text" required>
+
+        </div>
+        <a id="already-registered" href="/login">Already registered?</a>
+        <div id="terms-and-conditions-wrapper">By signing up, you agree to our website
+            <a id="terms-and-conditions" href="/about#terms-and-conditions">Terms and
+                Conditions & Cookie Policy</a>
+        </div>
+        <button type="submit" class="submit-button">Agree & Sign up</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@21.1.1/build/js/intlTelInput.min.js"></script>
+    <script>
+
+    </script>
+</form>
+
+<script src="../static/main/fieldValidator.js"></script>
+<script src="../static/main/register/register.js"></script>
+{% endblock content %}

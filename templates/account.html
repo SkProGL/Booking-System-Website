@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="../static/main/forms.css">
+<link rel="stylesheet" href="../static/main/admin/admin.css">
+<link rel="stylesheet" href="../static/main/account/account.css">
+{% endblock head %}
+
+{% block content %}
+{%if booking%}
+<form action="#" method="post" onsubmit="return validateForm();" class="registration-form">
+    <a href="{{request.url_root}}" id="base-url">{{request.url_root}}</a>
+    <div class="descriptive-title"> Welcome back, {{session['username']}}</div>
+    <p></p>
+    <div class="descriptive-title"> Please select booking to see more details</div>
+    <p></p>
+    <table class="ui celled table">
+        <thead>
+        <tr>
+            {% for k in range(headers | length) %}
+            <th>{{headers[k]}}</th>
+            {% endfor%}
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for i in range(booking | length) %}
+        <tr onclick="getTableRow(this.rowIndex)">
+            {% for j in range(booking[0] | length): %}
+            <td>{{booking[i][j]}}</td>
+            {% endfor%}
+        </tr>
+        {% endfor%}
+        </tbody>
+    </table>
+    <div>To amend room specific information, contact us at
+        <a href="mailto:wh.hotels.uk@gmail.com">wh.hotels.uk@gmail.com.</a>
+    </div>
+    <div id="manage">
+        <button type="button" id="invoice-button">Get invoice</button>
+        <label for="database-action">Action</label>
+        <select class="select-option" id="database-action" name="action">
+            <option value="update">Update booking</option>
+            <option value="delete">Cancel booking</option>
+        </select>
+        <div>
+            <div>
+                {% for k in range(headers | length) %}
+                <label class="generated-input-label">{{headers[k]}}</label>
+
+                <input value="" class="disable generated-input" tabindex="-1" name="{{headers[k]}}">
+
+                {% endfor%}
+            </div>
+        </div>
+        <button class="submit-button">Confirm</button>
+
+    </div>
+    <!--    <script src="../static/main/admin/admin.js"></script>-->
+    <script src="../static/main/account/account.js"></script>
+</form>
+{%else%}
+<div id="account_summary">
+    <p>Account summary below</p>
+    <p>Activity for the last month</p>
+    <p>No activity yet.</p>
+</div>
+{%endif%}
+{% endblock content %}

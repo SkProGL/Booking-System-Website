@@ -1,0 +1,239 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="../static/main/index.css">
+{% endblock head %}
+
+{% block content %}
+
+<!--<div style="margin: auto">-->
+<!--    80 to 90 days - 30%<br/>-->
+<!--    60 to 79 days - 20%<br/>-->
+<!--    45 to 59 days - 10%<br/><br/>-->
+<!--</div>-->
+
+<form action="#" method="post" onsubmit="return validateForm();" onkeydown="return event.key != 'Enter';">
+    <div class="wh-form">
+        <div class="wh-form-field" id="wh-form-city-wrapper" onclick="document.querySelector('#wh-form-city').click()">
+            <span for="wh-form-city" class="wh-form-label">City</span>
+            <select class="wh-form-input" id="wh-form-city" name="city">
+                {% if cities %}
+                {% for i in cities %}
+                <option value="{{i[0]}}">{{i[0]}}</option>
+                {% endfor %}
+                {% else %}
+                <option value="Aberdeen">Aberdeen</option>
+                <option value="Belfast">Belfast</option>
+                <option value="Birmingham">Birmingham</option>
+                <option value="Bournemouth">Bournemouth</option>
+                <option value="Bristol">Bristol</option>
+                <option value="Cardiff">Cardiff</option>
+                <option value="Edinburgh">Edinburgh</option>
+                <option value="Glasgow">Glasgow</option>
+                <option value="Kent">Kent</option>
+                <option value="London">London</option>
+                <option value="Manchester">Manchester</option>
+                <option value="Newcastle">Newcastle</option>
+                <option value="Norwich">Norwich</option>
+                <option value="Nottingham">Nottingham</option>
+                <option value="Oxford">Oxford</option>
+                <option value="Plymouth">Plymouth</option>
+                <option value="Swansea">Swansea</option>
+                {% endif %}
+
+            </select>
+        </div>
+        <div class="wh-form-field" id="wh-form-date-wrapper">
+            <span class="wh-form-label">Check-in</span>
+            <input class="wh-form-input" type="date" id="wh-form-checkin" name="checkIn" required>
+        </div>
+        <div class="wh-form-field">
+            <span class="wh-form-label">Check-out</span>
+            <input class="wh-form-input" type="date" id="wh-form-checkout" name="checkOut" required>
+        </div>
+        <div class="wh-form-field" id="wh-form-room-wrapper">
+            <span class="wh-form-label">Room type</span>
+            <select class="wh-form-input" id="wh-form-room" name="type" autocomplete="off">
+                <option value="standard">Standard, 1 guest</option>
+                <option value="double">Double, 2 guests</option>
+                <option value="family">Family, maximum 4 guests</option>
+                <option value="separate">Book several rooms</option>
+            </select>
+        </div>
+
+
+        <div class="wh-form-options">
+            <div class="wh-form-field">
+                <span class="wh-form-label">Total</span>
+                <input class="wh-form-input" id="wh-form-count" type="number" min="2" max="4"
+                       value="2" name="count">
+                </input>
+            </div>
+        </div>
+
+
+        <button class="booking" type="submit">Book</button>
+
+    </div>
+
+</form>
+<div class="descriptive-title">
+    Fast & secure room booking in any part of UK
+</div>
+
+<div style="margin: auto">
+    <a href="/about#booking-in-advance">
+        Book in advance and get a discount up to 30% !
+    </a>
+</div>
+<div class="wh-content">
+
+    <div class="booking-form">
+        <div class="booking-form-bg"></div>
+        <div class="wh-header-navigation">Make a search</div>
+    </div>
+</div>
+
+<p></p>
+<div>
+    <div class="grid-container">
+        <div class="grid-group">
+
+
+            <div class="grid-group-item" value="Aberdeen">
+                <div class="grid-group-item-source">gettyimages.co.uk</div>
+                <div class="grid-group-item-text">Aberdeen</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/aberdeen.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid-group-item" value="Belfast">
+                <div class="grid-group-item-source">gettyimages.co.uk</div>
+                <div class="grid-group-item-text">Belfast</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/belfast.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid-group-item" value="Birmingham">
+                <div class="grid-group-item-source">unsplash.com</div>
+                <div class="grid-group-item-text">Birmingham</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/birmingham.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid-group-item" value="Bournemouth">
+                <div class="grid-group-item-source">unsplash.com</div>
+                <div class="grid-group-item-text">Bournemouth</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/bournemouth.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid-group-item" value="Bristol">
+                <div class="grid-group-item-source">sandandstoneescapes.com</div>
+                <div class="grid-group-item-text">Bristol</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/bristol.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid-group-item" value="Cardiff">
+                <div class="grid-group-item-source">walesonline.com</div>
+                <div class="grid-group-item-text">Cardiff</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/cardiff.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid-group-item" value="Edinburgh">
+                <div class="grid-group-item-source">theedinburghreporter.co.uk</div>
+                <div class="grid-group-item-text">Edinburgh</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/edinburgh.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid-group-item" value="Glasgow">
+                <div class="grid-group-item-source">unsplash.com</div>
+                <div class="grid-group-item-text">Glasgow</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/glasgow.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid-group-item" value="Kent">
+                <div class="grid-group-item-source">www.gettyimages.co.uk</div>
+                <div class="grid-group-item-text">Kent</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/kent.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid-group-item" value="London">
+                <div class="grid-group-item-source">leonardo-hotels.com</div>
+                <div class="grid-group-item-text">London</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/london.jpeg" alt="">
+                </div>
+            </div>
+            <div class="grid-group-item" value="Manchester">
+                <div class="grid-group-item-source">InFluent: Manchester</div>
+                <div class="grid-group-item-text">Manchester</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/manchester.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="descriptive-title descriptive-page-break">Keep looking...</div>
+        <div class="grid-group">
+
+            <div class="grid-group-item" value="Newcastle">
+                <div class="grid-group-item-source">unsplash.com</div>
+                <div class="grid-group-item-text">Newcastle</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/newcastle.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid-group-item" value="Norwich">
+                <div class="grid-group-item-source">number82theunthank.co.uk</div>
+                <div class="grid-group-item-text">Norwich</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/norwich.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid-group-item" value="Nottingham">
+                <div class="grid-group-item-source">leonardo-hotels.com</div>
+                <div class="grid-group-item-text">Nottingham</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/nottingham.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="grid-group-item" value="Oxford">
+                <div class="grid-group-item-source">unsplash.com</div>
+                <div class="grid-group-item-text">Oxford</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/oxford.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid-group-item" value="Plymouth">
+                <div class="grid-group-item-source">greatsouthwest.co.uk</div>
+                <div class="grid-group-item-text">Plymouth</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/plymouth.jpg" alt="">
+                </div>
+            </div>
+            <div class="grid-group-item" value="Swansea">
+                <div class="grid-group-item-source">uknow.uky.edu/authors/amaya-devicente</div>
+                <div class="grid-group-item-text">Swansea</div>
+                <div class="grid-group-item-image">
+                    <img loading="lazy" src="../static/main/stock/swansea.jpg" alt="">
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<script src="../static/main/index.js"></script>
+{% endblock content %}
+
+

@@ -1,0 +1,61 @@
+#account_summary {
+    text-align: center;
+    font-size: 16px;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: auto;
+    width: 90%;
+    word-break: break-all;
+}
+
+th {
+    background: #0c73fe;
+    /*border:2px solid black;*/
+    color: white;
+    font-weight: normal;
+}
+
+td {
+    border: 1px solid black;
+    /*max-width: 100px;*/
+    text-align: center;
+    /*text-overflow: ellipsis;*/
+}
+
+td:hover {
+    background: #d9e8ff;
+}
+
+/*tr:nth-child(even){background-color: #f2f2f2;}*/
+tr {
+    /*background-color: #f2f2f2;*/
+    background-color: white;
+}
+
+.registration-form {
+    flex-direction: column;
+    align-items: center;
+}
+
+.select-option,
+.submit-button {
+    max-width: 170px;
+}
+
+#invoice-button {
+    border-radius: 4px;
+    max-width: 170px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    font-size: 13px;
+    background: none;
+    color: #0063b8;
+    border: 1px solid #0063b8;
+}
+#invoice-button:hover {
+    cursor: pointer;
+}

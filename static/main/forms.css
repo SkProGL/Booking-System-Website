@@ -1,0 +1,81 @@
+
+.registration-form {
+    display: flex;
+    justify-content: center;
+}
+
+label {
+    display: block;
+    padding: 3px 0;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+input,
+[for="password"] {
+    display: block;
+    padding: 2px;
+}
+
+
+input:focus {
+    outline-color: #0c73fe;
+}
+
+.select-option {
+    margin: auto;
+    max-width: 180px;
+    width: 180px;
+    display: flex;
+    outline-color: #0c73fe;
+    padding: 4px 3px; /*border: 1px solid black;*/
+    border-radius: 0.3em;
+    -webkit-appearance: none;
+    /*text-align: center;*/
+}
+.select-option:hover{
+    cursor: pointer;
+}
+.submit-button {
+    /*font-size: px;*/
+    width: 100%;
+    max-width: 170px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    background: rgba(46, 20, 131, 1);
+    padding: 0.5em;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 0.3em;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+}
+
+.submit-button:hover,
+.submit-button:focus {
+    cursor: pointer;
+    background: #f5f5f5;
+    color: black;
+    border: 1px solid #0c73fe;
+
+}
+
+.password-show-button {
+    position: absolute;
+    right: -55px;
+    bottom: 0;
+    height: 100%;
+    display: inline-block;
+    cursor: pointer;
+    min-width: 50px;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid red;
+    justify-content: center;
+    text-align: center;
+}
+
+#username-password-wrapper {
+    display: inline-block;
+    position: relative;
+}

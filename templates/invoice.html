@@ -1,0 +1,114 @@
+<!--invoice template source project used from-->
+<!--https://github.com/sparksuite/simple-html-invoice-template-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>WH - Booking invoice</title>
+    <script src="/../static/main/invoice/invoice.js"></script>
+    <link rel="stylesheet" href="/../static/main/invoice/invoice.css">
+    <!--    html to pdf-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+            integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+
+<body>
+<div class="invoice-box">
+    <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td class="title">
+                            <a class="nav-home" href="/home">
+                                <span>WorldHotels</span>
+                                <span>.com</span>
+                            </a>
+                        </td>
+
+                        <td>
+                            Booking ID: #{{booking["BookingID"]}}<br/>
+                            Check in date: {{booking['CheckInDate']}}<br/>
+                            Check out: {{booking['CheckOutDate']}}<br/>
+                            {% if rooms | length > 1 %}
+                            Room type: separate
+                            {% else %}
+                            Room type: {{rooms[0]['Type']}}
+                            {% endif%}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr class="information">
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td>
+                            World Hotels<br/>
+                            Prince Street<br/>
+                            Bristol, BS1 4QF<br/>
+                            United Kingdom
+                        </td>
+
+                        <td>
+                            Phone: {{client['Phone']}}<br/>
+                            Full name: {{client['Name']+' '+client['Surname']}}<br/>
+                            {{client['Email']}}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+
+        <tr class="heading">
+            <td>Item</td>
+
+            <td>Price</td>
+        </tr>
+        <tr class="item">
+            {% if receipt["Room1"]["stay_duration"]>1 %}
+            <td>Duration, {{receipt["Room1"]["stay_duration"]}} days</td>
+            {% else %}
+            <td>Duration, {{receipt["Room1"]["stay_duration"]}} day</td>
+            {% endif %}
+            <td></td>
+        </tr>
+        {% for i in range(rooms|length) %}
+        <tr class="item">
+            <td>Room {{i+1}} ({{rooms[i]["Type"]}})</td>
+            <td>{{receipt["Room" ~ (i+1)]["total_price"]}} £</td>
+        </tr>
+        {% if receipt["Room" ~ (i+1)]["extra_standard_room_fee"]%}
+        <tr class="item last">
+            <td>>1 standard room fee applied(10%)</td>
+
+            <td>{{totalbycurrencyRate}}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+        {% if receipt["advanced_booking_discount"]%}
+        <tr class="item">
+            <td>Discount {{receipt["advanced_booking_discount"]*100}}%</td>
+
+        </tr>
+        {% endif %}
+
+        <tr class="total">
+            <td></td>
+
+            <td>Total: {{receipt["Total"]}} £</td>
+        </tr>
+    </table>
+</div>
+<button onclick="download_pdf()" type="button">Download .PDF</button>
+<a href="/account">Back to bookings</a>
+
+</body>
+</html>

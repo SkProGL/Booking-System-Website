@@ -1,0 +1,35 @@
+#password-hint {
+    font-size: 10px;
+    max-width: 180px;
+    color: grey;
+}
+
+#username-password-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+#phone {
+    max-width: 170px;
+}
+
+.iti {
+    font-size: 12px;
+}
+
+#already-registered {
+    font-size: 10px;
+}
+
+#terms-and-conditions-wrapper {
+    max-width: 180px;
+    font-size: 10px;
+    color: grey;
+}
+
+#terms-and-conditions {
+    font-size: 10px;
+    text-decoration: underline;
+    color: grey;
+}
+

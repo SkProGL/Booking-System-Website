@@ -1,0 +1,17 @@
+Aberdeen, 90, 140, 70
+Belfast, 80, 130, 70
+Birmingham, 110, 150, 75
+Bristol, 100, 140, 70
+Cardiff, 90, 130, 70
+Edinburgh, 120, 160, 80
+Glasgow, 140, 150, 75
+London, 160, 200, 100
+Manchester, 150, 180, 90
+New Castle, 90, 120, 70
+Norwich, 90, 130, 70
+Nottingham, 110, 130, 70
+Oxford, 90, 180, 90
+Plymouth, 80, 180, 90
+Swansea, 70, 130, 70
+Bournemouth, 90, 130, 70
+Kent, 100, 140, 80

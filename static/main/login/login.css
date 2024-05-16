@@ -1,0 +1,23 @@
+#username-password-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+[href="/recover-password"] {
+    font-size: 10px;
+}
+
+#user-type {
+    margin: auto;
+    /*max-width: 200px;*/
+    width: 170px;
+    margin-top: 14px;
+    cursor: pointer;
+    display: flex;
+    outline-color: #0c73fe;
+    padding: 4px 3px;
+    border: none;
+    border-radius: 0.3em;
+    -webkit-appearance: none;
+
+}

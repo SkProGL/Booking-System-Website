@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block head %}
+<link rel="stylesheet" href="../static/main/forms.css">
+<link rel="stylesheet" href="../static/main/admin/admin.css">
+{% endblock head %}
+
+{% block content %}
+
+
+<form action="#" method="post" onsubmit="return validateForm();" class="registration-form">
+    <a href="{{request.url_root}}" id="base-url">{{request.url_root}}</a>
+    <div>
+        <label for="change-table">Current table:
+            <span id="current-table">{{table_name}}</span>
+        </label>
+        <select class="select-option" id="change-table" name="table">
+            <option value="admin">> admin</option>
+            <option value="booking">> booking</option>
+            <option value="client">> client</option>
+            <option value="hotel">> hotel</option>
+            <option value="room">> room</option>
+            <option value="currency">> currency</option>
+        </select>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            {% for k in range(headers | length) %}
+            <th>{{headers[k]}}</th>
+            {% endfor%}
+
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for i in range(table | length) %}
+        <tr onclick="getTableRow(this.rowIndex)">
+            {% for j in range(table[0] | length): %}
+            <td>{{table[i][j]}}</td>
+            {% endfor%}
+        </tr>
+        {% endfor%}
+        </tbody>
+    </table>
+    <div>
+        <label for="database-action">Action type</label>
+        <select class="select-option" id="database-action" name="action">
+            <option value="update">Update</option>
+            <option value="delete">Delete</option>
+            <option value="create">Add record</option>
+        </select>
+        <div>
+            <div>
+                {% for k in range(headers | length) %}
+                <label class="generated-input-label">{{headers[k]}}</label>
+
+                {% if k == 0 %}
+                <input value="" class="disable generated-input" tabindex="-1" name="{{headers[k]}}">
+                {% else %}
+                <input value="" class="generated-input" name="{{headers[k]}}">
+                {% endif %}
+
+                {% endfor%}
+            </div>
+        </div>
+        <button class="submit-button">Done</button>
+    </div>
+    <script src="../static/main/admin/admin.js"></script>
+</form>
+{% endblock content %}

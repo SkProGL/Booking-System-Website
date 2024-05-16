@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% if title %}
+    <title>World Hotels - {{title}}</title>
+    {% else %}
+    <title>World Hotels</title>
+    {% endif %}
+    <link rel="stylesheet" href="../static/main/nav.css">
+    {% block head %}
+    {% endblock head%}
+
+</head>
+<body>
+<noscript>
+    <meta http-equiv="refresh" content="0; url=/enable-js"/>
+</noscript>
+
+<div id="navigation_bar" nav-option={{navigation}}>
+    <div class="wh-header-navigation">
+<!--        <div class="wh-toolbar"></div>-->
+        <div class="wh-logo">
+            <a class="nav-home" href="/home">
+                <span>WorldHotels</span>
+                <span>.com</span>
+            </a>
+        </div>
+        <div class="wh-nav">
+
+            <div class="wh-nav-container">
+                <li>
+                    <a id="nav-booking" href="/home">Booking</a>
+                </li>
+
+                {% if session['user-type'] == 'client' %}
+                <li>
+                    <a id="nav-account" href="/account">Account</a>
+                </li>
+                <li>
+                    <a id="nav-logout" href="/logout">Log out</a>
+                </li>
+                {% elif session['user-type'] == 'admin' %}
+                <li>
+                    <a id="nav-admin" href="/admin/client">Manage</a>
+                </li>
+                <li>
+                    <a id="nav-logout" href="/logout">Log out</a>
+                </li>
+                {% else %}
+                <li>
+                    <a id="nav-register" href="/register">Register</a>
+                </li>
+                <li>
+                    <a id="nav-login" href="/login">Log in</a>
+                </li>
+                {% endif %}
+
+
+                <li>
+                    <a id="nav-about" href="/about">About us</a>
+                </li>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% if message %}
+<div class='alert-message'>{{message}}</div>
+{% elif success %}
+<div class='alert-success'>{{success}}</div>
+{% elif error %}
+<div class='alert-error'>{{error}}</div>
+{% endif %}
+
+{% block content %}
+{% endblock content%}
+
+<footer>
+    <div>Project by Glebs Leonovs</div>
+    <div>
+        <a href="https://www.uwe.ac.uk/">UWE</a>,
+        University of the West of England
+    </div>
+    <div>© 2023-2024, WorldHotels</div>
+</footer>
+<script src="../static/main/nav.js"></script>
+
+</body>
+</html>

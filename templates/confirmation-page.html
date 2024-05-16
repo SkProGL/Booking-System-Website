@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/main/nav.css">
+    <link rel="stylesheet" href="../static/main/confirmation-page.css">
+</head>
+<body>
+<div class="wh-logo">
+    <a class="nav-home" href="/home">
+        <span>WorldHotels</span>
+        <span>.com</span>
+    </a>
+</div>
+<form action="#" method="post">
+    <div id="main-window-wrapper">
+        <div id="main-window">
+            <div id="main-window-title">Checkout</div>
+
+            <div class="main-window-room">
+                <div class="main-window-row">
+                    {{hotelName}}
+                </div>
+
+                {% for i in range(1,rooms | length+1)%}
+                <div class="main-window-row">
+                    <div>Room {{i}} ({{rooms['Room'+i|string]['type']}})</div>
+                    <div class="extra-service">
+                        <input type="checkbox" name="{{i}}_TV" checked>TV
+                        <input type="checkbox" name="{{i}}_Internet" checked>Internet
+                        <input type="checkbox" name="{{i}}_MiniBar" checked>Mini-bar
+                        <input type="checkbox" name="{{i}}_Breakfast" checked>Breakfast
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="main-window-row">
+                    <div id="booking-caution">
+                        <a>*</a>
+                        Please note that some of the extra services may not always be available
+                    </div>
+                </div>
+
+            </div>
+            <div class="main-window-footer">
+
+                <div id="total-price">
+                    Total: {{price}}£
+                </div>
+                <div class="main-window-footer-action">
+                    <a id="cancel-button" href="/home">Cancel</a>
+                    <button id="confirm-button">Confirm & pay</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+<div id="booking-cancellation-wrapper">Please check our&nbsp;
+    <a id="booking-cancellation" href="/about#booking-cancellation"> booking cancellation policy</a>
+    <span>and</span>
+    <a id="room-pricing" href="/about#room-pricing">room pricing</a>
+    <span>criteria</span>
+</div>
+</body>
+</html>
